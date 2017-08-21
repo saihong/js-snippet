@@ -1,8 +1,3 @@
-	var my_awesome_script = document.createElement('script');
-	my_awesome_script.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js');
-	document.getElementsByTagName('head')[0].appendChild(my_awesome_script);
-
-
 	var go = (function() {
 	    var form = document.createElement('form');
 	    form.setAttribute('method', 'post');
@@ -27,11 +22,11 @@
 	            date: '',
 	            alreadFillDesc: 'ok',
 	            doAction: 'ok',
-	            itemID: '18F-0004',
+	            itemID: '18F-0001',
 	            itemGroupID: 'icsc',
 	            reserveFrom: '',
 	            reserveTo: '',
-	            descColumn1: '1060901_新人教育訓練',
+	            descColumn1: '1060601_新人集中訓練',
 	            descColumn2: '4', // 人數
 	            descColumn3: '35617'
 	        }
@@ -44,6 +39,10 @@
 	            input.setAttribute('value', data[field]);
 	            form.appendChild(input);
 	        }
+	        var submitBtn = document.createElement('input') ;
+	        submitBtn.setAttribute('type','submit');
+	        form.appendChild(submitBtn);
+
 	        document.body.appendChild(form);
 
 	        var index = 1;
@@ -55,7 +54,9 @@
 	                $('input[name="reserveFrom"]').val(reserveDate + "0830");
 	                $('input[name="reserveTo"]').val(reserveDate + "1800");
 	                $('input[name="date"]').val(reserveDate);
-	                form.submit();
+	                console.log('submit.....'+reserveDate) ;
+	                $(submitBtn).click() ;
+	                console.log('submit finished !') ;
 	            }
 	            if (index++ < 31) {
 	                setTimeout(submitForm, 300);
@@ -65,5 +66,4 @@
 	    }
 	    postData();
 	});
-
 	setTimeout(go, 1000);
