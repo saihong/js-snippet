@@ -1,0 +1,19 @@
+
+          // folder 優先顯示
+          while (i--) {
+            if (!rslts[i].children) {
+              let info = rslts.splice(i, 1)[0]; 
+
+              if ( info.mobile ) {
+                if (!info.mobile) {
+                  info.mobile = true;
+                }
+                mobileApps.push(info);
+              } else {
+                leaves.push(info);
+              }
+            }
+          }
+          // 優先放行動 App
+
+          me.apps = rslts.concat(mobileApps).concat(leaves);
